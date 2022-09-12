@@ -8,10 +8,16 @@ import { IProduct } from 'src/interface/products';
 })
 export class ProductsComponent implements OnInit {
 
+  selectedProduct?: any;
+
   constructor() { }
 
   ngOnInit(): void {
-  };
+  }
+
+  onSelect(product: any): void {
+    this.selectedProduct = product;
+  }
 
   products: any[] = [{
     id: 1, name: 'product 1',
