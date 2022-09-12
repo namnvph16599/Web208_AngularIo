@@ -1,1 +1,6 @@
-<p>products works!</p>
+<h1>Product List</h1>
+<ul class="products">
+    <li *ngFor="let product of products">
+        <button>{{product.id}}</button>- <span>{{ product.name }}</span>
+    </li>
+</ul>
