@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/interface/products';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +7,22 @@ import { IProduct } from 'src/interface/products';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  constructor() { }
+  constructor(private formBuilder: FormBuilder,) {
+  }
+
+  checkoutForm = this.formBuilder.group({
+    name: ''
+  })
+
+  onSubmit() {
+    console.log(111111, this.checkoutForm);
+    const product = {
+      id: this.products[this.products.length - 1].id + 1,
+      name: this.checkoutForm.value.name
+    }
+    this.products = this.products.concat(product)
+    this.checkoutForm.reset()
+  }
 
   selectedProduct?: any;
 
@@ -17,15 +32,11 @@ export class ProductsComponent implements OnInit {
 
   title: string = 'Products List';
 
-  showProduct: boolean = false;
-
   setTitle() {
     this.title = 'Product List Changed'
   }
 
   onSelect(product: any): void {
-    console.log(11111, product);
-    this.showProduct = true;
     this.selectedProduct = product;
   }
 

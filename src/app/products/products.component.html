@@ -8,6 +8,20 @@
         <button (click)="removeProduct(product.id)">Remove</button>
     </li>
 </ul>
+
+<h1>Add Product</h1>
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="name">
+            Name
+        </label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+
+    <button type="submit">Add</button>
+</form>
+
 <!-- 
 <div *ngIf="selectedProduct">
     <h2>{{selectedProduct.name | uppercase}} Details</h2>
