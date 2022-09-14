@@ -1,9 +1,11 @@
-<h1>Product List</h1>
+<h1>{{ title}}</h1>
+<button (click)="setTitle()">Set Title</button>
 <ul class="products">
     <li *ngFor="let product of products">
-        <button [class.selected]="product === selectedProduct" type="button"
-            (click)="onSelect(product)">{{product.id}}</button>-
+        <!-- <button [class.selected]="product === selectedProduct" type="button" -->
+        <button type="button" (click)="onSelect(product)">{{product.id}}</button>-
         <span>{{ product.name }}</span>
+        <button (click)="removeProduct(product.id)">Remove</button>
     </li>
 </ul>
 <!-- 
@@ -16,4 +18,6 @@
     </div>
 </div> -->
 
+
 <app-product-detail [product]="selectedProduct"></app-product-detail>
+<!-- {{showProduct && <app-product-detail [product]="selectedProduct"></app-product-detail>}} -->

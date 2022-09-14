@@ -7,15 +7,25 @@ import { IProduct } from 'src/interface/products';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  constructor() { }
 
   selectedProduct?: any;
 
-  constructor() { }
 
   ngOnInit(): void {
   }
 
+  title: string = 'Products List';
+
+  showProduct: boolean = false;
+
+  setTitle() {
+    this.title = 'Product List Changed'
+  }
+
   onSelect(product: any): void {
+    console.log(11111, product);
+    this.showProduct = true;
     this.selectedProduct = product;
   }
 
@@ -26,4 +36,8 @@ export class ProductsComponent implements OnInit {
     id: 2, name: 'product 2',
   }
   ]
+
+  removeProduct(id: number) {
+    this.products = this.products.filter(product => product.id !== id);
+  }
 }
