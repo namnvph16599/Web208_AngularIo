@@ -48,6 +48,15 @@ export class ProductsComponent implements OnInit {
   }
   ]
 
+  handleAddProduct(data: any) {
+    console.log(5656565, data);
+    const product = {
+      id: this.products[this.products.length - 1].id + 1,
+      name: data.name
+    }
+    this.products = this.products.concat(product)
+  }
+
   removeProduct(id: number) {
     this.products = this.products.filter(product => product.id !== id);
   }

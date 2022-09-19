@@ -2,25 +2,13 @@
 <button (click)="setTitle()">Set Title</button>
 <ul class="products">
     <li *ngFor="let product of products">
-        <!-- <button [class.selected]="product === selectedProduct" type="button" -->
         <button type="button" (click)="onSelect(product)">{{product.id}}</button>-
         <span>{{ product.name }}</span>
         <button (click)="removeProduct(product.id)">Remove</button>
     </li>
 </ul>
 
-<h1>Add Product</h1>
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-
-    <div>
-        <label for="name">
-            Name
-        </label>
-        <input id="name" type="text" formControlName="name">
-    </div>
-
-    <button type="submit">Add</button>
-</form>
+<app-product-add (onAddProduct)="handleAddProduct($event)"></app-product-add>
 
 <!-- 
 <div *ngIf="selectedProduct">

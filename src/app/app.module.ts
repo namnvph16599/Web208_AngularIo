@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { Lab1Component } from './lab/lab1/lab1.component';
 import { HeaderComponent } from './lab/lab2/header/header.component';
 import { ProductlistComponent } from './lab/lab2/productlist/productlist.component';
+import { ProductAddComponent } from './product-add/product-add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { ProductlistComponent } from './lab/lab2/productlist/productlist.compone
     Lab1Component,
     HeaderComponent,
     ProductlistComponent,
+    ProductAddComponent,
 
   ],
   imports: [
